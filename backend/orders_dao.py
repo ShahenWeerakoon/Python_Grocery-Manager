@@ -2,12 +2,12 @@ from datetime import datetime
 from sql_connection import get_sql_connection
 
 def insert_order(connection, order):
-    cursor = connection.cursor()
+    cursor = connection.cursor()   #Mqke the bridge between DB and the python code 
 
     order_query = ("INSERT INTO orders "
                    "(customer_name, total, datetime) "
                    "VALUES (%s, %s, %s)")
-    order_data = (order['customer_name'], order['total'], datetime.now())
+    order_data = (order['customer_name'], order['total'], datetime.now())      # This is a tuple containing the actual values to be inserted into the orders table
 
     cursor.execute(order_query, order_data)
     order_id = cursor.lastrowid
