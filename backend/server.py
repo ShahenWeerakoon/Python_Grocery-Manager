@@ -6,14 +6,14 @@ import uom_dao
 import json
 import orders_dao
 
-app = Flask(__name__)
+app = Flask(__name__)    #This line initializes the Flask application by creating an instance of the Flask class.
 
-connection = get_sql_connection()
+connection = get_sql_connection()   #function to establish a connection to the database
 
 @app.route('/getProducts', methods=['GET'])
 def get_products():
     products = product_dao.get_all_products(connection)
-    response =  jsonify(products)
+    response =  jsonify(products)    #The jsonify function converts the list of products into a JSON response that can be returned to the client 
     response.headers.add('Access-Control-Allow-Origin', '*')
 
     return response
