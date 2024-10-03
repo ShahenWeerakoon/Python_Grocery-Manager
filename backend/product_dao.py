@@ -10,7 +10,7 @@ def get_all_products(connection):
     """)
 
     cursor.execute(query)
-    response = []
+    response = []  #Initializes an empty list named response to store the products
 
     for products_id, name, uom_id, price_per_unit, uom_name in cursor:
         response.append(
@@ -38,7 +38,7 @@ def insert_new_product(connection, products):
     connection.commit()
     
 
-    return cursor.lastrowid
+    return cursor.lastrowid   #Returns the ID (lastrowid) of the last inserted product (the newly added product)
 
 def delete_product(connection, products_id):
     cursor = connection.cursor()
@@ -54,10 +54,19 @@ def delete_product(connection, products_id):
 if __name__ == '__main__':
     connection = get_sql_connection()
 
+
+    #new_product = {
+    #    'product_name' : 'Banana',
+    #    'uom_id': 2,
+    #    'price_per_unit': 255
+    #}
+
+    #new_product_id = insert_new_product(connection, new_product)
+    #print(f"Inserted new product: {new_product_id}")
     
-    deleted_product_id = delete_product(connection, 16)
+    deleted_product_id = delete_product(connection, 20)
     print(f"Deleted product ID: {deleted_product_id}")
 
-    connection.close()
+    connection.close()  #Closes the database connection.
     
    
