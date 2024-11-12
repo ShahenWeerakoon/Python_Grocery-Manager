@@ -1,3 +1,2 @@
 # Grocery-Manager
-A simple Grocery Management application that helps users create and manage grocery lists.
-The backend built using Python, Flask, and MySQL Workbench for database management.
+A simple Grocery Management backend application designed to help users create and manage grocery lists efficiently. Built using Python, Flask, and MySQL Workbench for database management, this backend API allows users to add, update, view, and delete grocery items. This project focuses solely on the backend logic, providing a robust foundation for any front-end interface integration
